@@ -4,7 +4,8 @@ jobs:
   building:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout#v3
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - run: echo "Ejecutando python"
+        uses: actions/checkout#v3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
