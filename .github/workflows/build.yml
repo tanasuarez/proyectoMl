@@ -4,7 +4,7 @@ jobs:
   building:
     runs-on: ubuntu-laster
     steps:
-      - use: actions/checkout#v3
-      - use: actions/setup-python@v4
+      - uses: actions/checkout#v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
