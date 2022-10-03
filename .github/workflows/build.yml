@@ -13,17 +13,7 @@ jobs:
       - run: poetry build
       - run: ls ${{ github.workspace }}
 
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - name: Publish to GH Release        
+        uses: softprops/action-hg-release@v1
         with:
-          tag_name: 0.1.0
-          release_name: Release 0.1.
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: true
-          prerelease: false
+          files: ${{ github.workspace }}/dist/*
