@@ -13,10 +13,12 @@ jobs:
           python-version: '3.10'
       - name: Install Poetry
         uses: snok/install-poetry@v1
-      - run: poetry build
-      - run: ls ${{ github.workspace }}
+      - name: Install dependencies
+        run: poetry install
       - name: Testing
         run: poetry run pytest
+      - run: poetry build
+      - run: ls ${{ github.workspace }}
       - name: Publish to GH Release        
         uses: softprops/action-gh-release@v1
         with:
